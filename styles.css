@@ -84,13 +84,11 @@ a { color: inherit; }
 .header-book { min-height: 44px; padding: 0.55rem 1.1rem; }
 .only-desktop { display: none; }
 
-/* Hero: three reel stills edge to edge on wide screens, one on phones */
+/* Hero: the Unit 11a facade at dusk, full bleed at every width */
 .hero { position: relative; background: var(--ink); }
-.hero-strip { display: flex; height: calc(100svh - 64px); min-height: 500px; max-height: 1150px; }
-.hero-shot { flex: 1 1 0; min-width: 0; height: 100%; }
-.hero-shot picture { display: block; height: 100%; }
-.hero-side { display: none; }
-.hero-img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+.hero-photo { height: calc(100svh - 64px); min-height: 500px; max-height: 1150px; }
+.hero-photo picture { display: block; height: 100%; }
+.hero-img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 30%; }
 .hero-panel {
   position: absolute; left: var(--gutter); right: var(--gutter); bottom: 0;
   padding: 1.2rem 1.1rem 1.25rem;
@@ -157,15 +155,12 @@ a { color: inherit; }
 .board-foot { display: grid; gap: 0.8rem; margin-top: 1rem; }
 .note { font-size: 0.9375rem; color: var(--ink-soft); }
 
-/* Full-width chevron wall band: height follows ratio */
-
-/* Phone and tablet photo band between timetable and memberships */
+/* Phone photo band before the reviews: the A-board outside */
 .band { max-width: 720px; margin: 0 auto; padding-inline: var(--gutter); }
-.band img { width: 100%; height: 200px; object-fit: cover; object-position: 50% 58%; border-radius: var(--radius) var(--radius) 0 0; }
-@media (min-width: 960px) { .band { display: none; } }
+.band img { width: 100%; object-fit: cover; border-radius: var(--radius) var(--radius) 0 0; }
 .band-phone { background: var(--concrete); padding-top: 1rem; }
-.band-phone img { height: 180px; object-position: 50% 30%; }
-@media (min-width: 768px) { .band-phone { display: none; } }
+.band-phone img { height: 180px; object-position: 50% 28%; }
+@media (min-width: 960px) { .band-phone { display: none; } }
 
 /* Memberships */
 .memberships { background: var(--purple); color: #fff; padding-block: 1.5rem; }
@@ -182,11 +177,14 @@ a { color: inherit; }
 .price { font-family: var(--display); font-weight: 800; font-size: 1.35rem; white-space: nowrap; line-height: 1.2; }
 .small-note { margin-top: 0.5rem; font-size: 0.875rem; color: var(--on-purple-soft); }
 .mem-photo img { width: 100%; border-radius: var(--radius); aspect-ratio: 2730 / 1536; object-fit: cover; }
-/* Below desktop: the unit photo sits as its own strip above the hours card */
+/* Below desktop: the unit photo opens the section, above the price list */
 @media (max-width: 959px) {
-  .mem-card { display: grid; gap: 0.75rem; }
+  .mem-card { display: contents; }
+  .mem-photo { order: -1; }
   .mem-photo img { aspect-ratio: 2730 / 1536; object-position: 50% 60%; }
+  .mem-door img { width: 100%; height: 170px; object-fit: cover; object-position: 50% 45%; border-radius: var(--radius); }
 }
+@media (min-width: 960px) { .mem-door { display: none; } }
 .hours {
   background: var(--chalk); color: var(--ink);
   border-radius: var(--radius); padding: 1rem 1.1rem;
@@ -226,12 +224,12 @@ a { color: inherit; }
   color: var(--purple); font-weight: 700; text-underline-offset: 3px;
 }
 .ev-photo img { width: 100%; border-radius: var(--radius); }
-/* Below desktop: the coffee-door photo backs the card, text on a purple fade */
+/* Below desktop: the ESC lounge photo backs the card, text on a purple fade */
 @media (max-width: 959px) {
   .ev-card { position: relative; overflow: hidden; border-radius: var(--radius); background: var(--purple-deep); }
   .ev-photo { position: absolute; inset: 0; }
   .ev-photo picture, .ev-photo img { width: 100%; height: 100%; }
-  .ev-photo img { object-fit: cover; object-position: 50% 30%; border-radius: 0; }
+  .ev-photo img { object-fit: cover; object-position: 50% 0; border-radius: 0; }
   .ev-text {
     position: relative; padding: 11rem 1.25rem 1.25rem; color: #fff;
     background: linear-gradient(180deg, rgba(44,21,84,0) 3rem, rgba(44,21,84,0.94) 10rem, var(--purple-deep) 12rem);
@@ -340,7 +338,7 @@ a { color: inherit; }
 
   .visit { padding-block: 1rem 1.25rem; }
   .ev-grid { gap: 0.9rem; }
-  .ev-text { padding: 9rem 1rem 0.9rem; background: linear-gradient(180deg, rgba(44,21,84,0) 2rem, rgba(44,21,84,0.94) 8rem, var(--purple-deep) 9.5rem); }
+  .ev-text { padding: 11rem 1rem 0.9rem; background: linear-gradient(180deg, rgba(44,21,84,0) 7rem, rgba(44,21,84,0.94) 10.5rem, var(--purple-deep) 11.5rem); }
   .ev-text h2 { font-size: 2.2rem; }
   .ev-text blockquote { margin-top: 0.6rem; padding-left: 0.8rem; }
   .ev-text blockquote p { font-size: 1rem; line-height: 1.4; }
@@ -366,15 +364,17 @@ a { color: inherit; }
   :root { --gutter: 0.75rem; }
   .brand-name { font-size: 1.3rem; }
   .hero-panel { left: 0.5rem; right: 0.5rem; padding: 0.95rem 0.9rem 1rem; }
-  .hero-panel h1 { font-size: 2.2rem; }
-  .hero-panel p { font-size: 0.9375rem; }
+  .hero-panel h1 { font-size: 2rem; }
+  .hero-panel p { font-size: 0.875rem; margin-top: 0.4rem; }
+  .hero-panel .btn-row { margin-top: 0.6rem; }
+  .hero-img { object-position: 62% 0; }
   .btn { padding: 0.6rem 0.85rem; font-size: 0.9375rem; }
   .btn-row { gap: 0.45rem; }
   .snap-row > * { flex-basis: 84%; }
   .memberships { padding-top: 0.9rem; }
-  .band img { height: 150px; }
   .band-phone { padding-top: 0.75rem; }
-  .band-phone img { height: 140px; }
+  .band-phone img { height: 120px; }
+  .mem-door img { height: 120px; }
   .classes-photo img { height: 200px; }
   .price-list li { padding: 0.25rem 0; }
   .price-list p { line-height: 1.25; }
@@ -399,9 +399,8 @@ a { color: inherit; }
   .review-grid { grid-template-columns: repeat(3, 1fr); }
   .board-foot { grid-template-columns: 1fr auto; align-items: center; }
 
-  .hero-strip { height: 86svh; min-height: 620px; }
-  .hero-side { display: block; }
-  .hero-shot + .hero-shot { border-left: 3px solid var(--ink); }
+  .hero-photo { height: 86svh; min-height: 620px; }
+  .hero-img { object-position: 50% 40%; }
   .hero-panel {
     left: 1.5rem; right: auto; bottom: 1.5rem;
     max-width: min(500px, 31vw); min-width: 440px; padding: 1.6rem 1.75rem 1.75rem; border-radius: var(--radius);
