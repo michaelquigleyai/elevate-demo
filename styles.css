@@ -380,6 +380,18 @@ a { color: inherit; }
   .price-list p { line-height: 1.25; }
 }
 
+/* Narrowest phones: nothing in Memberships may set a min-content wider than the screen */
+@media (max-width: 359px) {
+  .mem-grid { grid-template-columns: minmax(0, 1fr); }
+  .mem-panel, .mem-card, .price-list li { min-width: 0; }
+  .price-list li { grid-template-columns: minmax(0, 1fr) auto; column-gap: 0.5rem; }
+  .price { white-space: normal; text-align: right; }
+  .hours { padding: 0.8rem 0.7rem; }
+  .hours tbody { column-gap: 0.6rem; }
+  .hours th { width: 2.4rem; }
+  .hours table { font-size: 0.875rem; }
+}
+
 /* Tablet and up */
 @media (min-width: 768px) {
   :root { --gutter: 1.5rem; }
